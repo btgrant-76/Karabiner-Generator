@@ -6,6 +6,8 @@ MANIPULATORS = "manipulators"
 L_ONE = "one"
 L_TWO = "two"
 
+BASE_MODIFIER = "right_shift"
+
 simple_mappings = {
     "caps_lock": "escape",
     "tab": "grave_accent_and_tilde",
@@ -14,7 +16,7 @@ simple_mappings = {
 layers = {
     "one": {
         MANDATORY: [
-            "right_command"
+            BASE_MODIFIER
         ],
         "optional": [
             "any"
@@ -22,53 +24,119 @@ layers = {
     },
     "two": {
         MANDATORY: [
-            "right_command",
-            "left_control"
+            BASE_MODIFIER,
+            "left_shift"
         ],
         "optional": [
             "any"
         ]
     },
+    "three": {
+        MANDATORY: [
+            BASE_MODIFIER,
+            "tab"
+        ],
+        "optional": [
+            "any"
+        ]
+    }
 }
 
 rule_sets: Dict[str, Dict[str, Any]] = {
     "Mercutio Layer 2 VIM navigation": {
-        "layer": "two",
+        "layer": "one",
         MANIPULATORS: {
             "h": "left_arrow",
             "j": "down_arrow",
             "k": "up_arrow",
             "l": "right_arrow",
         }
-    }, "Mercutio Layer 1 NumPad": {
+    },
+    # "Mercutio Layer 1 NumPad": {
+    #     "layer": "one",
+    #     MANIPULATORS: {
+    #         "e": "1",
+    #         "r": "2",
+    #         "t": "3",
+    #         "d": "4",
+    #         "f": "5",
+    #         "g": "6",
+    #         "c": "7",
+    #         "v": "8",
+    #         "b": "9",
+    #         "n": "0",
+    #     }
+    # },
+    # "Mercutio Layer 2 F Keys": {
+    #     "layer": "two",
+    #     MANIPULATORS: {
+    #         "e": "f1",
+    #         "r": "f2",
+    #         "t": "f3",
+    #         "d": "f4",
+    #         "f": "f5",
+    #         "g": "f6",
+    #         "c": "f7",
+    #         "v": "f8",
+    #         "b": "f9",
+    #         "n": "f10",
+    #         "m": "f11",
+    #         "comma": "f12",
+    #     }
+    # }
+    "Mercutio Numbers": {
         "layer": "one",
         MANIPULATORS: {
-            "e": "1",
-            "r": "2",
-            "t": "3",
-            "d": "4",
-            "f": "5",
-            "g": "6",
-            "c": "7",
-            "v": "8",
-            "b": "9",
-            "n": "0",
+            "q": "1",
+            "w": "2",
+            "e": "3",
+            "r": "4",
+            "t": "5",
+            "y": "6",
+            "u": "7",
+            "i": "8",
+            "o": "9",
+            "p": "0",
         }
-    }, "Mercutio Layer 2 F Keys": {
+    },
+    "Mercutio F-Keys": {
         "layer": "two",
         MANIPULATORS: {
-            "e": "f1",
-            "r": "f2",
-            "t": "f3",
-            "d": "f4",
-            "f": "f5",
-            "g": "f6",
-            "c": "f7",
-            "v": "f8",
-            "b": "f9",
-            "n": "f10",
-            "m": "f11",
-            "comma": "f12",
+            "q": "f1",
+            "w": "f2",
+            "e": "f3",
+            "r": "f4",
+            "t": "f5",
+            "y": "f6",
+            "u": "f7",
+            "i": "f8",
+            "o": "f9",
+            "p": "f10",
+            "a": "f11",
+            "s": "f12",
+        }
+    },
+    "Mercutio Navigation": {
+        "layer": "two",
+        MANIPULATORS: {
+            "h": "page_up",
+            "j": "page_down",
+            "k": "home",
+            "l": "end",
+        }
+    },
+    "Mercutio Punctuation": {
+        "layer": "one",
+        MANIPULATORS: {
+            "tab": "grave_accent_and_tilde",
+            "x": "backslash",
+            "c": "slash",
+            "v": "quote",
+            "b": "semicolon",
+            "n": "hyphen",
+            "m": "equal_sign",
+            "comma": "open_bracket",
+            "period": "close_bracket",
         }
     }
 }
