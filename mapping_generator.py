@@ -5,16 +5,18 @@ MANDATORY = "mandatory"
 MANIPULATORS = "manipulators"
 L_ONE = "one"
 L_TWO = "two"
+L_THREE = "three"
 
-BASE_MODIFIER = "right_shift"
+BASE_MODIFIER = "right_command"
 
 simple_mappings = {
-    "caps_lock": "escape",
-    "tab": "grave_accent_and_tilde",
+    # "caps_lock": "escape",
+    # "tab": "grave_accent_and_tilde",
+    "right_shift": "slash"
 }
 
 layers = {
-    "one": {
+    L_ONE: {
         MANDATORY: [
             BASE_MODIFIER
         ],
@@ -22,19 +24,19 @@ layers = {
             "any"
         ]
     },
-    "two": {
+    L_TWO: {
         MANDATORY: [
             BASE_MODIFIER,
-            "left_shift"
+            "left_control"
         ],
         "optional": [
             "any"
         ]
     },
-    "three": {
+    L_THREE: {
         MANDATORY: [
             BASE_MODIFIER,
-            "tab"
+            "left_shift"
         ],
         "optional": [
             "any"
@@ -43,8 +45,8 @@ layers = {
 }
 
 rule_sets: Dict[str, Dict[str, Any]] = {
-    "Mercutio Layer 2 VIM navigation": {
-        "layer": "one",
+    "Mercutio VIM navigation": {
+        "layer": L_ONE,
         MANIPULATORS: {
             "h": "left_arrow",
             "j": "down_arrow",
@@ -53,7 +55,7 @@ rule_sets: Dict[str, Dict[str, Any]] = {
         }
     },
     # "Mercutio Layer 1 NumPad": {
-    #     "layer": "one",
+    #     "layer": L_ONE,
     #     MANIPULATORS: {
     #         "e": "1",
     #         "r": "2",
@@ -68,7 +70,7 @@ rule_sets: Dict[str, Dict[str, Any]] = {
     #     }
     # },
     # "Mercutio Layer 2 F Keys": {
-    #     "layer": "two",
+    #     "layer": L_TWO,
     #     MANIPULATORS: {
     #         "e": "f1",
     #         "r": "f2",
@@ -85,7 +87,7 @@ rule_sets: Dict[str, Dict[str, Any]] = {
     #     }
     # }
     "Mercutio Numbers": {
-        "layer": "one",
+        "layer": L_ONE,
         MANIPULATORS: {
             "q": "1",
             "w": "2",
@@ -100,7 +102,7 @@ rule_sets: Dict[str, Dict[str, Any]] = {
         }
     },
     "Mercutio F-Keys": {
-        "layer": "two",
+        "layer": L_TWO,
         MANIPULATORS: {
             "q": "f1",
             "w": "f2",
@@ -117,7 +119,7 @@ rule_sets: Dict[str, Dict[str, Any]] = {
         }
     },
     "Mercutio Navigation": {
-        "layer": "two",
+        "layer": L_TWO,
         MANIPULATORS: {
             "h": "page_up",
             "j": "page_down",
@@ -126,17 +128,26 @@ rule_sets: Dict[str, Dict[str, Any]] = {
         }
     },
     "Mercutio Punctuation": {
-        "layer": "one",
+        "layer": L_ONE,
         MANIPULATORS: {
             "tab": "grave_accent_and_tilde",
-            "x": "backslash",
-            "c": "slash",
-            "v": "quote",
-            "b": "semicolon",
+            "slash": "backslash",
+            # "x": "backslash",
+            # "c": "slash",
+            # "d": "semicolon",
+            # "f": "quote",
+            "g": "semicolon",
+            "f": "quote",
             "n": "hyphen",
             "m": "equal_sign",
             "comma": "open_bracket",
             "period": "close_bracket",
+        }
+    },
+    "Mercutio L Two Misc.": {
+        "layer": L_TWO,
+        MANIPULATORS: {
+            "delete_or_backspace": "delete_forward"
         }
     }
 }
@@ -170,9 +181,34 @@ def generate_simple_modification(from_code: str, to_code: str) -> Dict[str, Any]
     }
 
 
-print("[")
-
-comma_mark = len(rule_sets) - 1
+complex_modification_rules = [
+    {
+        "description": "Mercutio CapsLock to Hyper/Escape",
+        "manipulators": [
+            {
+                "from": {
+                    "key_code": "caps_lock",
+                    "modifiers": {
+                        "optional": [
+                            "any"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": BASE_MODIFIER
+                    }
+                ],
+                "to_if_alone": [
+                    {
+                        "key_code": "escape"
+                    }
+                ],
+                "type": "basic"
+            }
+        ]
+    },
+]
 
 for i, rs_name in enumerate(rule_sets.keys()):
     rs = rule_sets[rs_name]
@@ -182,11 +218,11 @@ for i, rs_name in enumerate(rule_sets.keys()):
     manipulators = rs[MANIPULATORS]
 
     generated = [generate_rule(from_cd, to_cd, layer) for from_cd, to_cd in rs[MANIPULATORS].items()]
-    print(json.dumps(
+    complex_modification_rules.append(
         {
             "description": rs_name,
             MANIPULATORS: generated
-        }, indent=4
-    ) + ("" if comma_mark == i else ","))
+        }
+    )
 
-print("]")
+print(json.dumps(complex_modification_rules, indent=4))
