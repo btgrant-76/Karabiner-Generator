@@ -35,7 +35,7 @@ layers = {
     },
     L_THREE: {
         MANDATORY: [
-            BASE_MODIFIER,
+            "left_control",
             "left_shift"
         ],
         "optional": [
@@ -102,7 +102,7 @@ rule_sets: Dict[str, Dict[str, Any]] = {
         }
     },
     "Mercutio F-Keys": {
-        "layer": L_TWO,
+        "layer": L_THREE,
         MANIPULATORS: {
             "q": "f1",
             "w": "f2",
@@ -119,11 +119,11 @@ rule_sets: Dict[str, Dict[str, Any]] = {
         }
     },
     "Mercutio Navigation": {
-        "layer": L_TWO,
+        "layer": L_THREE,
         MANIPULATORS: {
-            "h": "page_up",
+            "h": "home",
             "j": "page_down",
-            "k": "home",
+            "k": "page_up",
             "l": "end",
         }
     },
@@ -136,8 +136,9 @@ rule_sets: Dict[str, Dict[str, Any]] = {
             # "c": "slash",
             # "d": "semicolon",
             # "f": "quote",
-            "g": "semicolon",
-            "f": "quote",
+            "f": "semicolon",
+            "d": "quote",
+            "b": "quote",
             "n": "hyphen",
             "m": "equal_sign",
             "comma": "open_bracket",
@@ -147,7 +148,8 @@ rule_sets: Dict[str, Dict[str, Any]] = {
     "Mercutio L Two Misc.": {
         "layer": L_TWO,
         MANIPULATORS: {
-            "delete_or_backspace": "delete_forward"
+            "delete_or_backspace": "delete_forward",
+            "b": "semicolon",
         }
     }
 }
