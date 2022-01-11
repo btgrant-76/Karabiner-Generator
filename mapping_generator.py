@@ -45,35 +45,6 @@ def generate_simple_modification(from_code: str, to_code: str) -> Dict[str, Any]
     }
 
 
-complex_modification_rules = [
-    {
-        "description": "Mercutio CapsLock to Hyper/Escape",
-        "manipulators": [
-            {
-                "from": {
-                    "key_code": "caps_lock",
-                    "modifiers": {
-                        "optional": [
-                            "any"
-                        ]
-                    }
-                },
-                "to": [
-                    {
-                        "key_code": BASE_MODIFIER
-                    }
-                ],
-                "to_if_alone": [
-                    {
-                        "key_code": "escape"
-                    }
-                ],
-                "type": "basic"
-            }
-        ]
-    },
-]
-
 if len(sys.argv) == 2:
     print("please provide layer definition and rule sets files")
     exit(-1)
@@ -87,7 +58,11 @@ with open(layer_def_file, encoding="utf8", mode="r") as layer_definitions:
     layers = json.load(layer_definitions)
 
     with open(rule_sets_file, encoding="utf8", mode="r") as rule_sets_file:
-        rule_sets = json.load(rule_sets_file)
+        json_rule_sets = json.load(rule_sets_file)
+
+        complex_modification_rules = json_rule_sets["staticComplexRules"]
+
+        rule_sets = json_rule_sets["complexModificationRules"]
 
         for i, rs_name in enumerate(rule_sets.keys()):
             rs = rule_sets[rs_name]
