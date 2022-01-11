@@ -1,0 +1,28 @@
+{
+    "one": {
+        "mandatory": [
+            "right_command"
+        ],
+        "optional": [
+            "any"
+        ]
+    },
+    "two": {
+        "mandatory": [
+            "right_command",
+            "left_control"
+        ],
+        "optional": [
+            "any"
+        ]
+    },
+    "three": {
+        "mandatory": [
+            "left_control",
+            "left_shift"
+        ],
+        "optional": [
+            "any"
+        ]
+    }
+}

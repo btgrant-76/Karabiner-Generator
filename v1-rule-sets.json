@@ -1,0 +1,103 @@
+{
+  "staticComplexRules": [
+    {
+      "description": "Mercutio CapsLock to Hyper/Escape",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_command"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ],
+  "complexModificationRules": {
+    "Mercutio VIM navigation": {
+      "layer": "one",
+      "manipulators": {
+        "h": "left_arrow",
+        "j": "down_arrow",
+        "k": "up_arrow",
+        "l": "right_arrow"
+      }
+    },
+    "Mercutio Numbers": {
+      "layer": "one",
+      "manipulators": {
+        "q": "1",
+        "w": "2",
+        "e": "3",
+        "r": "4",
+        "t": "5",
+        "y": "6",
+        "u": "7",
+        "i": "8",
+        "o": "9",
+        "p": "0"
+      }
+    },
+    "Mercutio F-Keys": {
+      "layer": "three",
+      "manipulators": {
+        "q": "f1",
+        "w": "f2",
+        "e": "f3",
+        "r": "f4",
+        "t": "f5",
+        "y": "f6",
+        "u": "f7",
+        "i": "f8",
+        "o": "f9",
+        "p": "f10",
+        "a": "f11",
+        "s": "f12"
+      }
+    },
+    "Mercutio Navigation": {
+      "layer": "three",
+      "manipulators": {
+        "h": "home",
+        "j": "page_down",
+        "k": "page_up",
+        "l": "end"
+      }
+    },
+    "Mercutio Punctuation": {
+      "layer": "one",
+      "manipulators": {
+        "tab": "grave_accent_and_tilde",
+        "slash": "backslash",
+        "f": "semicolon",
+        "d": "quote",
+        "b": "quote",
+        "n": "hyphen",
+        "m": "equal_sign",
+        "comma": "open_bracket",
+        "period": "close_bracket"
+      }
+    },
+    "Mercutio L Two Misc.": {
+      "layer": "two",
+      "manipulators": {
+        "delete_or_backspace": "delete_forward",
+        "b": "semicolon"
+      }
+    }
+  }
+}
