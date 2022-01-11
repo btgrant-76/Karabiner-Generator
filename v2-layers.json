@@ -1,0 +1,18 @@
+{
+  "one": {
+    "mandatory": [
+      "right_option"
+    ],
+    "optional": [
+      "any"
+    ]
+  },
+  "two": {
+    "mandatory": [
+      "right_command"
+    ],
+    "optional": [
+      "any"
+    ]
+  }
+}
