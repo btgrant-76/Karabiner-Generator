@@ -52,6 +52,15 @@
         "l": "right_arrow"
       }
     },
+    "Mercutio Navigation": {
+      "layer": "three",
+      "manipulators": {
+        "h": "home",
+        "j": "page_down",
+        "k": "page_up",
+        "l": "end"
+      }
+    },
     "Mercutio F-Keys": {
       "layer": "two",
       "manipulators": {
@@ -69,21 +78,38 @@
         "s": "f12"
       }
     },
-    "Mercutio Punctuation": {
-      "layer": "one",
+    "Mercutio Media Keys": {
+      "layer": "three",
       "manipulators": {
-        "s": "grave_accent_and_tilde",
-        "d": "backslash",
-        "h": "quote",
-        "j": "open_bracket",
-        "k": "close_bracket",
-        "l": "semicolon",
-        "enter_or_return": "quote",
-        "m": "hyphen",
-        "comma": "equal_sign",
-        "period": "slash",
-        "delete_or_backspace": "delete_forward"
+        "q": "display_brightness_decrement",
+        "w": "display_brightness_increment",
+        "e": "mission_control",
+        "r": "launchpad",
+        "t": "illumination_decrement",
+        "y": "illumination_increment",
+        "u": "rewind",
+        "i": "play_or_pause",
+        "o": "fastforward",
+        "p": "mute",
+        "d": "volume_increment"
+      }
+      },
+      "Mercutio Punctuation": {
+        "layer": "one",
+        "manipulators": {
+          "tab": "grave_accent_and_tilde",
+          "s": "grave_accent_and_tilde",
+          "d": "backslash",
+          "h": "quote",
+          "j": "open_bracket",
+          "k": "close_bracket",
+          "l": "semicolon",
+          "enter_or_return": "quote",
+          "n": "hyphen",
+          "m": "equal_sign",
+          "period": "slash",
+          "delete_or_backspace": "delete_forward"
+        }
       }
     }
   }
-}

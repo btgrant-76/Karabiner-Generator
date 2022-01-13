@@ -14,5 +14,13 @@
     "optional": [
       "any"
     ]
+  },
+  "three": {
+    "mandatory": [
+      "right_control"
+    ],
+    "optional": [
+      "any"
+    ]
   }
 }
