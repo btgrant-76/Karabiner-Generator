@@ -23,6 +23,59 @@
             }
           ],
           "type": "basic"
+        },
+        {
+          "description": "Hold slash for HYPER",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "modifiers": [
+                "left_command",
+                "left_control",
+                "left_option"
+              ]
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "slash"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Hold z for MEH",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "modifiers": [
+                "left_control",
+                "left_option"
+              ]
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "z"
+            }
+          ],
+          "type": "basic"
         }
       ]
     }
@@ -93,23 +146,23 @@
         "p": "mute",
         "d": "volume_increment"
       }
-      },
-      "Mercutio Punctuation": {
-        "layer": "one",
-        "manipulators": {
-          "tab": "grave_accent_and_tilde",
-          "s": "grave_accent_and_tilde",
-          "d": "backslash",
-          "h": "quote",
-          "j": "open_bracket",
-          "k": "close_bracket",
-          "l": "semicolon",
-          "enter_or_return": "quote",
-          "n": "hyphen",
-          "m": "equal_sign",
-          "period": "slash",
-          "delete_or_backspace": "delete_forward"
-        }
+    },
+    "Mercutio Punctuation": {
+      "layer": "one",
+      "manipulators": {
+        "tab": "grave_accent_and_tilde",
+        "s": "grave_accent_and_tilde",
+        "d": "backslash",
+        "h": "quote",
+        "j": "open_bracket",
+        "k": "close_bracket",
+        "l": "semicolon",
+        "enter_or_return": "quote",
+        "n": "hyphen",
+        "m": "equal_sign",
+        "period": "slash",
+        "delete_or_backspace": "delete_forward"
       }
     }
   }
+}
